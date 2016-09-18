@@ -34,14 +34,16 @@ export default ({
   interval,
   highPulse,
   lowPulse,
-  pulseValue
+  pulseValue,
+  mid,
+  high
 }) => {
-
   group.scale.x = lowPulse * 0.001
   group.scale.y = lowPulse * 0.001
+  group.rotation.x = high * 0.01
 
   scene.getObjectByName('tri').children.forEach((obj, i) => {
-    obj.rotation.y = rotate * i * 0.01;
-    obj.rotation.x = -rotate * i * 0.01;
+    obj.rotation.y = high * i * 0.01;
+    obj.rotation.z = -high * i * 0.001;
   })
 }
